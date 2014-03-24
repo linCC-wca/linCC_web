@@ -48,6 +48,7 @@ class varList(models.Model):
 
 class PLCConnections(models.Model):
     myid         = TinyIntegerField("id", primary_key=True)
+    asdasd         = TinyIntegerField("asdasdda")
     PLCType    = TinyIntegerField("type")
     PLCRack    = TinyIntegerField("rack")
     PLCSlot    = TinyIntegerField("slot")
