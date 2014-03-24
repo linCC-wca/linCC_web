@@ -9,6 +9,9 @@ from django.db import models
 class TinyIntegerField(models.SmallIntegerField):
     """ custom field, representing 'tinyint' in mysql """
 
+    def __init__(self, *args, **kwargs):
+        super(HandField, self).__init__(*args, **kwargs)
+
     def db_type(self, connection):
         if connection.settings_dict['ENGINE'] == 'django.db.backends.mysql':
             return "tinyint"
