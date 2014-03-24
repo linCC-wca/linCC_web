@@ -9,9 +9,6 @@ from django.db import models
 class TinyIntegerField(models.SmallIntegerField):
     """ custom field, representing 'tinyint' in mysql """
 
-    def __init__(self, *args, **kwargs):
-        super(TinyIntegerField, self).__init__(*args, **kwargs)
-
     def db_type(self, connection):
         if connection.settings_dict['ENGINE'] == 'django.db.backends.mysql':
             return "tinyint"
@@ -47,8 +44,7 @@ class varList(models.Model):
 
 
 class PLCConnections(models.Model):
-    myid       = TinyIntegerField("id", primary_key=True)
-    asdasd     = TinyIntegerField("asdasdda")
+    id         = TinyIntegerField("id", primary_key=True)
     PLCType    = TinyIntegerField("type")
     PLCRack    = TinyIntegerField("rack")
     PLCSlot    = TinyIntegerField("slot")
