@@ -20,8 +20,8 @@ class MediumIntegerField(models.IntegerField):
             return super(MediumIntegerField, self).db_type(connection)
 
 
-
-class varList(models.Model):
+# TODO partition
+class VarList(models.Model):
 
     name = models.CharField(
         verbose_name = 'name', db_column = 'tagName',
@@ -32,6 +32,9 @@ class varList(models.Model):
     )
     plc_num = TinyIntegerField(
         verbose_name = 'PLCnumber', db_column = 'tagPLCNo',
+    )
+    access = TinyIntegerField(
+        verbose_name = 'PLCnumber', db_column = 'tagAccess',
     )
     db = models.SmallIntegerField(
         db_column = 'tagDB',
@@ -67,14 +70,50 @@ class varList(models.Model):
 
 
 
+class TagAccess(models.Model):
+
+    name = models.CharField(max_length="4")
+
+    class Meta:
+        db_table = "tagAccess"
+
+    def __str__(self):
+        return self.name
+
+
+
+class PLCType(models.Model):
+
+    name = models.CharField(max_length="20")
+
+    class Meta:
+        db_table = "PLCType"
+
+    def __str__(self):
+        return self.name
+
+
+
+class TagType(models.Model):
+
+    name = models.CharField(max_length="20")
+
+    class Meta:
+        db_table = "tagType"
+
+    def __str__(self):
+        return self.name
+
+
+
 class PLCConnections(models.Model):
 
     name = models.CharField(
         verbose_name = 'name', db_column = 'PLCName',
         max_length = 10,
     )
-    type = TinyIntegerField(
-        verbose_name = 'type', db_column = 'PLCType', db_index = True
+    type = models.ForeignKey(PLCType,
+        db_column = 'PLCType',
     )
     rack = TinyIntegerField(
         verbose_name = 'rack', db_column = 'PLCRack',
@@ -98,15 +137,3 @@ class PLCConnections(models.Model):
 
     def __str__(self):
         return '%s' % self.PLCIp
-
-
-
-class tagType(models.Model):
-
-    name = models.CharField(max_length="10")
-
-    class Meta:
-        db_table = "tagType"
-
-    def __str__(self):
-        return self.name

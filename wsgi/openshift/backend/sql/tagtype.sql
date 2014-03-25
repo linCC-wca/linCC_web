@@ -1,7 +1,3 @@
---
--- Dump dei dati per la tabella `tagType`
---
-
 INSERT INTO `tagType` (`id`, `name`) VALUES
 (1, 'BOOL'),
 (2, 'BYTE'),
