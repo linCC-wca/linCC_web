@@ -66,7 +66,7 @@ class VarList(models.Model):
         db_table = 'varList'
 
     def __str__(self):
-        return self.tagName
+        return self.name
 
 
 

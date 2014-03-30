@@ -38,6 +38,9 @@
 }
 
 body { padding-top: 70px; }
-#content { display: none; }
+#content {
+    display: none; /* TODO: fare il trick con js */
+    display: block;
+}
 .table_name { font-weight: bold; }
 #menu a:hover { cursor: pointer; }

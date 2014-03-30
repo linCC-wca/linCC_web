@@ -60,7 +60,28 @@ $def_table = $table_names[0];
 <div class="container" id="content">
 
   <div class="row">
+    <table class="table table-condensed table-bordered" id="table">
     <!--?php get_table($def_table); ?-->
+      {% if var_list %}
+        <thead>
+          {# TODO remove primary key #}
+          {% for field in db_columns %}
+            <th>{{ field }}</th>
+          {% endfor %}
+        </thead>
+        <tbody>
+          {# TODO remove primary key #}
+          {% for entry in var_list %}
+            <tr>
+              {% for value in entry %}
+                <td>{{ entry }}</td>
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      {% endif %}
+    </table>
+
   </div>
 
   <div class="row" id="csv">
@@ -103,7 +124,7 @@ $def_table = $table_names[0];
 
   <!-- client script JS
   ================================================== -->
-  <script src="{% static 'js/script.js' %}"></script>
+  <!--script src="{% static 'js/script.js' %}"></script-->
 </div>
 </body>
 </html>
