@@ -20,55 +20,6 @@ class MediumIntegerField(models.IntegerField):
             return super(MediumIntegerField, self).db_type(connection)
 
 
-# TODO partition
-class VarList(models.Model):
-
-    name = models.CharField(
-        verbose_name = 'name', db_column = 'tagName',
-        max_length = 50,
-    )
-    type = TinyIntegerField(
-        verbose_name = 'type', db_column = 'tagType',
-    )
-    plc_num = TinyIntegerField(
-        verbose_name = 'PLCnumber', db_column = 'tagPLCNo',
-    )
-    access = TinyIntegerField(
-        verbose_name = 'PLCnumber', db_column = 'tagAccess',
-    )
-    db = models.SmallIntegerField(
-        db_column = 'tagDB',
-    )
-    byte = MediumIntegerField(
-        db_column = 'tagBYTE',
-    )
-    bit = TinyIntegerField(
-        db_column = 'tagBIT',
-    )
-    r_val = models.FloatField(
-        db_column = 'rValue',
-        null=True,
-    )
-    w_val = models.FloatField(
-        db_column = 'wValue',
-        null=True,
-    )
-    w_flag = TinyIntegerField(
-        verbose_name = 'type', db_column = 'wFlag',
-        null=True,
-    )
-    comment = models.CharField(
-        verbose_name = 'comment', db_column = 'tagComment',
-        max_length=100,
-    )
-
-    class Meta:
-        db_table = 'varList'
-
-    def __str__(self):
-        return self.name
-
-
 
 class TagAccess(models.Model):
 
@@ -137,3 +88,56 @@ class PLCConnections(models.Model):
 
     def __str__(self):
         return '%s' % self.PLCIp
+
+
+
+# TODO partition
+class VarList(models.Model):
+
+    name = models.CharField(
+        verbose_name = 'name', db_column = 'tagName',
+        max_length = 50,
+    )
+    type = TinyIntegerField(
+        verbose_name = 'type', db_column = 'tagType',
+    )
+    # plc_num = TinyIntegerField(
+    #     verbose_name = 'PLCnumber', db_column = 'tagPLCNo',
+    # )
+    plc_num = models.ForeignKey(PLCConnections,
+        verbose_name = 'PLCnumber', db_column = 'tagPLCNo',
+    )
+    access = TinyIntegerField(
+        verbose_name = 'PLCnumber', db_column = 'tagAccess',
+    )
+    db = models.SmallIntegerField(
+        db_column = 'tagDB',
+    )
+    byte = MediumIntegerField(
+        db_column = 'tagBYTE',
+    )
+    bit = TinyIntegerField(
+        db_column = 'tagBIT',
+    )
+    r_val = models.FloatField(
+        db_column = 'rValue',
+        null=True,
+    )
+    w_val = models.FloatField(
+        db_column = 'wValue',
+        null=True,
+    )
+    w_flag = TinyIntegerField(
+        verbose_name = 'type', db_column = 'wFlag',
+        null=True,
+    )
+    comment = models.CharField(
+        verbose_name = 'comment', db_column = 'tagComment',
+        max_length=100,
+    )
+
+    class Meta:
+        db_table = 'varList'
+
+    def __str__(self):
+        return self.name
