@@ -87,7 +87,7 @@ class PLCConnections(models.Model):
         db_table = 'PLCConnections'
 
     def __str__(self):
-        return '%s' % self.PLCIp
+        return '%s' % self.id
 
 
 

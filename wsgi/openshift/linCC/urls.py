@@ -1,7 +1,8 @@
 from django.conf.urls import patterns, url
 
 from linCC import views
+from linCC.views import VarListView
 
 urlpatterns = patterns('',
-    url(r'^$', views.index, name='index')
+    url(r'^$', VarListView.as_view()),
 )

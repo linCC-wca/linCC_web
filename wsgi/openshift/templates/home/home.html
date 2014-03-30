@@ -61,24 +61,39 @@ $def_table = $table_names[0];
 
   <div class="row">
     <table class="table table-condensed table-bordered" id="table">
-    <!--?php get_table($def_table); ?-->
+      {% if db_columns %}
+      <thead>
+        <th>{{ db_columns.name    }}</th>
+        <th>{{ db_columns.type    }}</th>
+        <th>{{ db_columns.plc_num }}</th>
+        <th>{{ db_columns.access  }}</th>
+        <th>{{ db_columns.db      }}</th>
+        <th>{{ db_columns.byte    }}</th>
+        <th>{{ db_columns.bit     }}</th>
+        <th>{{ db_columns.r_val   }}</th>
+        <th>{{ db_columns.w_val   }}</th>
+        <th>{{ db_columns.w_flag  }}</th>
+        <th>{{ db_columns.comment }}</th>
+      </thead>
+      {% endif %}
       {% if var_list %}
-        <thead>
-          {# TODO remove primary key #}
-          {% for field in db_columns %}
-            <th>{{ field }}</th>
-          {% endfor %}
-        </thead>
-        <tbody>
-          {# TODO remove primary key #}
-          {% for entry in var_list %}
-            <tr>
-              {% for value in entry %}
-                <td>{{ entry }}</td>
-              {% endfor %}
-            </tr>
-          {% endfor %}
-        </tbody>
+      <tbody>
+        {% for entry in var_list %}
+        <tr>
+          <td>{{ entry.name    }}</td>
+          <td>{{ entry.type    }}</td>
+          <td>{{ entry.plc_num }}</td>
+          <td>{{ entry.access  }}</td>
+          <td>{{ entry.db      }}</td>
+          <td>{{ entry.byte    }}</td>
+          <td>{{ entry.bit     }}</td>
+          <td>{{ entry.r_val   }}</td>
+          <td>{{ entry.w_val   }}</td>
+          <td>{{ entry.w_flag  }}</td>
+          <td>{{ entry.comment }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
       {% endif %}
     </table>
 
