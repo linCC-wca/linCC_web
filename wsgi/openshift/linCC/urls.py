@@ -1,8 +1,8 @@
 from django.conf.urls import patterns, url
 
 from linCC import views
-from linCC.views import VarListView
+from linCC.views import HomeView
 
 urlpatterns = patterns('',
-    url(r'^$', VarListView.as_view()),
+    url(r'^$', HomeView.as_view()),
 )

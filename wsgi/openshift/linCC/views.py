@@ -5,6 +5,20 @@ from linCC.models import VarList as VarListModel
 
 
 
+class HomeView(View):
+
+    template_name = 'home.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name, {
+            'tables': [
+                'varList',
+                'PLCConnection'
+            ]
+        })
+
+
+
 class VarListView(View):
 
     template_name = 'home/home.html'
