@@ -108,7 +108,7 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'linCC',
+            'NAME': 'lincc',
             'USER': 'root',
             'PASSWORD': '',
         }
