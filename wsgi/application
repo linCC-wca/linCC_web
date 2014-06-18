@@ -3,6 +3,12 @@ import os
 import sys
 import imp
 
+try:
+    import pymysql
+    pymysql.install_as_MySQLdb()
+except ImportError:
+    pass
+
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
 if 'OPENSHIFT_REPO_DIR' in os.environ:
