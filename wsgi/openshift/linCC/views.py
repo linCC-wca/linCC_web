@@ -21,7 +21,7 @@ class HomeView(View):
 
 class VarListView(View):
 
-    template_name = 'home/home.html'
+    template_name = 'tables/varlist.html'
 
     def get(self, request, *args, **kwargs):
         var_list = VarListModel.objects.all()
