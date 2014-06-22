@@ -41,3 +41,12 @@ class VarListView(View):
             else:
                 db_columns[field.name] = field.column
         return db_columns
+
+
+
+class PLCConnectionView(View):
+
+    template_name = 'tables/plcconnection.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
