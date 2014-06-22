@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import View
 
 from linCC.models import VarList as VarListModel
+from linCC.models import PLCConnections as PLCConnectionsModel
 
 
 
@@ -44,9 +45,25 @@ class VarListView(View):
 
 
 
-class PLCConnectionView(View):
+class PLCConnectionsView(View):
 
     template_name = 'tables/plcconnection.html'
 
     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+        connections = PLCConnectionsModel.objects.all()
+        db_columns = self.get_db_columns()
+        return render(request, self.template_name, {
+            'connections': connections,
+            'db_columns': db_columns
+        })
+
+    def get_db_columns(self):
+        db_columns = {}
+        for field in PLCConnectionsModel._meta.fields:
+            column_name = field.db_column
+            if column_name:
+                # db_columns.append(column_name)
+                db_columns[field.name] = column_name
+            else:
+                db_columns[field.name] = field.column
+        return db_columns

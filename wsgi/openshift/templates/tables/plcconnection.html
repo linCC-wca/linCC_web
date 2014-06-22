@@ -1,12 +1,51 @@
 {% extends 'tables/table.base.html' %}
 
-{% block title %}PLCConnection{% endblock %}
 
-{% block tname %}PLCConnection{% endblock %}
+{% block title %}PLCConnections{% endblock %}
+
+
+{% block tname %}PLCConnections{% endblock %}
+
 
 {% block body %}
-  <p>I am PLCConnection</p>
+<div class="container" id="content">
+
+  <div class="row">
+    <table class="table table-condensed table-bordered" id="table">
+      {% if db_columns %}
+      <thead>
+        <th>{{ db_columns.id        }}</th>
+        <th>{{ db_columns.name      }}</th>
+        <th>{{ db_columns.type      }}</th>
+        <th>{{ db_columns.rack      }}</th>
+        <th>{{ db_columns.slot      }}</th>
+        <th>{{ db_columns.ip        }}</th>
+        <th>{{ db_columns.conn_port }}</th>
+        <th>{{ db_columns.desc      }}</th>
+      </thead>
+      {% endif %}
+      {% if connections %}
+      <tbody>
+        {% for c in connections %}
+        <tr>
+          <td>{{ c.id        }}</td>
+          <td>{{ c.name      }}</td>
+          <td>{{ c.type      }}</td>
+          <td>{{ c.rack      }}</td>
+          <td>{{ c.slot      }}</td>
+          <td>{{ c.ip        }}</td>
+          <td>{{ c.conn_port }}</td>
+          <td>{{ c.desc      }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+      {% endif %}
+    </table>
+
+  </div>
+</div>
 {% endblock %}
+
 
 {#
   <div class="row" id="csv">
