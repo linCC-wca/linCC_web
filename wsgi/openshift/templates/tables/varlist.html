@@ -1,31 +1,6 @@
-<!DOCTYPE html>
-<!--?php
+{% extends 'base.html' %}
 
-require('./functions.php');
-
-$table_names = get_table_names();
-$def_table = $table_names[0];
-
-?-->
-
-<html>
-<head>
-    <title>db_read</title>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    {% load staticfiles %}
-
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-
-    <link href="{% static 'style.css' %}" rel="stylesheet">
-</head>
-
-<body>
-<noscript>Warning, you need to enable javascript</noscript>
-
+{#
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -56,6 +31,8 @@ $def_table = $table_names[0];
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+#}
+{% block body %}
 
 <div class="container" id="content">
 
@@ -99,6 +76,25 @@ $def_table = $table_names[0];
 
   </div>
 
+
+
+  {% load staticfiles %}
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="{% static 'lib/jquery/jquery-1.11.0.min.js' %}"></script>
+  <script src="{% static 'lib/bootstrap/js/bootstrap.min.js' %}"></script>
+
+  <!-- Highcharts JS
+  ================================================== -->
+  <!--script src="./lib/highcharts/js/highcharts.js"></script-->
+
+  <!-- client script JS
+  ================================================== -->
+  <!--script src="{% static 'js/script.js' %}"></script-->
+{% endblock %}
+
+{#
   <div class="row" id="csv">
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -126,20 +122,4 @@ $def_table = $table_names[0];
       </div>
     </div>
   </div>
-
-  <!-- Bootstrap core JavaScript
-  ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="{% static 'lib/jquery/jquery-1.11.0.min.js' %}"></script>
-  <script src="{% static 'lib/bootstrap/js/bootstrap.min.js' %}"></script>
-
-  <!-- Highcharts JS
-  ================================================== -->
-  <!--script src="./lib/highcharts/js/highcharts.js"></script-->
-
-  <!-- client script JS
-  ================================================== -->
-  <!--script src="{% static 'js/script.js' %}"></script-->
-</div>
-</body>
-</html>
+#}
