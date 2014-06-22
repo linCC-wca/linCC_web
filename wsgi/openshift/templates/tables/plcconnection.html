@@ -1,9 +1,39 @@
-{% extends 'base.html' %}
+{% extends 'tables/table.base.html' %}
+
+{% block title %}PLCConnection{% endblock %}
+
+{% block tname %}PLCConnection{% endblock %}
 
 {% block body %}
-<div class="container">
-
-  <p>I am plcconnection</p>
-
-</div> <!-- /container -->
+  <p>I am PLCConnection</p>
 {% endblock %}
+
+{#
+  <div class="row" id="csv">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Upload csv file</h3>
+      </div>
+      <div class="panel-body">
+        <form action="form.php" method="POST" enctype="multipart/form-data">
+          <!-- TODO: transform in js | input[type=hidden]@name echoato in maniera intelligente -->
+          <input type="hidden" name="action" value="csv_upload" />
+          <input type="hidden" name="table_name" value="<?=$def_table?>" />
+          <div class="form-group">
+            <label>File input
+            <input type="file" name="csv_file"/>
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Separator
+              <input type="text" class="form-control" name="sep" placeholder="default: ,">
+            </label>
+          </div>
+          <div class="form-group">
+            <input class="btn btn-primary" type="submit" value="upload"/>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+#}
