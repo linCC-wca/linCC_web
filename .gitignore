@@ -12,3 +12,7 @@ venv/
 virtenv/
 dist/
 build/
+
+# sublime IDE
+*.sublime-project
+*.sublime-workspace
