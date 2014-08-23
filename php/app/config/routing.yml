@@ -1,0 +1,5 @@
+lincc_tables:
+    resource: "@LinCCTablesBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
