@@ -1,5 +1,6 @@
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 lincc_tables:
     resource: "@LinCCTablesBundle/Controller/"
     type:     annotation
     prefix:   /
-

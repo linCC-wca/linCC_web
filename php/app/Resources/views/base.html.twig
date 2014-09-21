@@ -17,6 +17,12 @@
             {% javascripts '@jquery' %}
                 <script src="{{ asset_url }}"></script>
             {% endjavascripts %}
+            {% javascripts filter='?uglifyjs'
+                'bundles/fosjsrouting/js/router.js'
+                'js/fos_js_routes.js'
+            %}
+                <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
         {% endblock %}
     </head>
     <body>
