@@ -7,6 +7,16 @@
     {% endstylesheets %}
 {% endblock %}
 
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts
+        '@hinclude'
+        '@LinCCTablesBundle/Resources/public/js/script.js'
+        filter='?uglifyjs' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
 {% block body %}
     {{ include('LinCCTablesBundle:Tables:nav.html.twig') }}
     {% block content %}{% endblock %}

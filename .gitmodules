@@ -4,3 +4,6 @@
 [submodule "php/app/Resources/hinclude"]
 	path = php/app/Resources/hinclude
 	url = https://github.com/mnot/hinclude.git
+[submodule "php/app/Resources/jquery"]
+	path = php/app/Resources/jquery
+	url = https://github.com/jquery/jquery.git

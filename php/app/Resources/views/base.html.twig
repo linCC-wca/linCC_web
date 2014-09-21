@@ -13,7 +13,11 @@
             {% endstylesheets %}
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            {% javascripts '@jquery' %}
+                <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}

@@ -2,3 +2,13 @@ body {
     min-height: 1000px;
     padding-top: 70px;
 }
+
+table tr td:last-child {
+    max-width: 200px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+table tr td:last-child abbr[title] {
+    border-bottom: none;
+}

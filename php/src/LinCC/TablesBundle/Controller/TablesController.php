@@ -57,7 +57,7 @@ class TablesController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $vars = $em->getRepository('LinCCTablesBundle:VarList')
-                ->findAll();
+                ->findBy(array(), NULL, 30);
 
         return array('vars' => $vars);
     }

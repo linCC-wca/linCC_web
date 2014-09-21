@@ -34,9 +34,12 @@
                   <td>{{ var.getByte() }}</td>
                   <td>{{ var.getBit() }}</td>
                   <td>{{ var.getRValue() }}</td>
-                  <td>{{ var.getWValue() ? var.getWValue() : 'null' }}</td>
-                  <td>{{ var.getWFlag() ? var.getWFlag() : 'null' }}</td>
-                  <td>{{ var.getComment() }}</td>
+                  <td>{{ var.getWValue() ? var.getWValue() : 'NULL' }}</td>
+                  <td>{{ var.getWFlag() ? var.getWFlag() : 'NULL' }}</td>
+                  <td>{#{ var.getComment() }#}
+                    {% set comment = var.getComment() %}
+                    <abbr title="{{ comment }}">{{ comment }}</abbr>
+                  </td>
                 </tr>
             {% endfor %}
         {% endif %}
