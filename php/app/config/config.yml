@@ -31,7 +31,8 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [ ]
+    bundles:
+        - LinCCTablesBundle
     #java: /usr/bin/java
     #node: /usr/bin/nodejs // decomment if node binary cannot be found
     filters:
