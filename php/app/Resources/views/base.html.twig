@@ -8,7 +8,7 @@
         <meta name="author" content="Walter Barbagallo; Mauro Ghedin">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
-            {% stylesheets 'twbs/dist/css/bootstrap.css' filter='?uglifycss' %}
+            {% stylesheets '@bootstrap' filter='?uglifycss' %}
                 <link rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets %}
         {% endblock %}

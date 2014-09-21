@@ -45,6 +45,10 @@ assetic:
             bin: %kernel.root_dir%/Resources/node_modules/uglify-js/bin/uglifyjs
         uglifycss:
             bin: %kernel.root_dir%/Resources/node_modules/.bin/uglifycss
+    assets:
+        bootstrap:
+            inputs:
+                - %kernel.root_dir%/Resources/bootstrap/dist/css/bootstrap.css
 
 # Doctrine Configuration
 doctrine:
