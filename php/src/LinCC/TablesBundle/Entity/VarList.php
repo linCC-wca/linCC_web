@@ -112,72 +112,72 @@ class VarList
     }
 
     /**
-     * Set tagName
+     * Set name
      *
-     * @param string $tagName
+     * @param string $name
      * @return VarList
      */
-    public function setTagName($tagName)
+    public function setName($name)
     {
-        $this->tagName = $tagName;
+        $this->name = $name;
     
         return $this;
     }
 
     /**
-     * Get tagName
+     * Get name
      *
      * @return string 
      */
-    public function getTagName()
+    public function getName()
     {
-        return $this->tagName;
+        return $this->name;
     }
 
     /**
-     * Set tagType
+     * Set type
      *
-     * @param integer $tagType
+     * @param integer $type
      * @return VarList
      */
-    public function setTagType($tagType)
+    public function setType($type)
     {
-        $this->tagType = $tagType;
+        $this->type = $type;
     
         return $this;
     }
 
     /**
-     * Get tagType
+     * Get type
      *
      * @return integer 
      */
-    public function getTagType()
+    public function getType()
     {
-        return $this->tagType;
+        return $this->type;
     }
 
     /**
-     * Set tagPLC
+     * Set PLC
      *
-     * @param integer $tagPLC
+     * @param integer $PLC
      * @return VarList
      */
-    public function setTagPLC($tagPLC)
+    public function setPLC($PLC)
     {
-        $this->tagPLC = $tagPLC;
+        $this->PLC = $PLC;
     
         return $this;
     }
 
     /**
-     * Get tagPLC
+     * Get PLC
      *
      * @return integer 
      */
-    public function getTagPLC()
+    public function getPLC()
     {
-        return $this->tagPLC;
+        return $this->PLC;
     }
 
     /**

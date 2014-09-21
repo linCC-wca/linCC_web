@@ -43,7 +43,11 @@ class TablesController extends Controller
      */
     public function displayTablePLCConnectionAction()
     {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $plcconnections = $em->getRepository('LinCCTablesBundle:PLCConnection')
+                ->findAll();
+
+        return array('plcconnections' => $plcconnections);
     }
 
     /**
@@ -51,6 +55,10 @@ class TablesController extends Controller
      */
     public function displayTableVarlistAction()
     {
-        return array();
+        $em = $this->getDoctrine()->getManager();
+        $vars = $em->getRepository('LinCCTablesBundle:VarList')
+                ->findAll();
+
+        return array('vars' => $vars);
     }
 }

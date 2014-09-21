@@ -1,3 +1,48 @@
-{% extends "LinCCTablesBundle:Tables:base.html.twig" %}
+{% extends "LinCCTablesBundle:Tables:layout.html.twig" %}
 
 {% block title %}Varlist{% endblock %}
+
+{% block content %}
+<div class="container" id="content">
+
+  <div class="row">
+    <table class="table table-condensed table-bordered" id="table">
+      <thead>
+        <th>th</th>
+        <th>th</th>
+        <th>th</th>
+        <th>th</th>
+        <th>th</th>
+        <th>th</th>
+        <th>th</th>
+        <th>th</th>
+        <th>th</th>
+        <th>th</th>
+        <th>th</th>
+        <th>th</th>
+      </thead>
+      <tbody>
+        {% if vars is defined %}
+            {% for var in vars %}
+                <tr>
+                  <td>{{ var.getId() }}</td>
+                  <td>{{ var.getName() }}</td>
+                  <td>{{ var.getType() }}</td>
+                  <td>{{ var.getPLC().getName() }}</td>
+                  <td>{{ var.getAccess() }}</td>
+                  <td>{{ var.getDb() }}</td>
+                  <td>{{ var.getByte() }}</td>
+                  <td>{{ var.getBit() }}</td>
+                  <td>{{ var.getRValue() }}</td>
+                  <td>{{ var.getWValue() ? var.getWValue() : 'null' }}</td>
+                  <td>{{ var.getWFlag() ? var.getWFlag() : 'null' }}</td>
+                  <td>{{ var.getComment() }}</td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+      </tbody>
+    </table>
+
+  </div>
+</div>
+{% endblock %}
