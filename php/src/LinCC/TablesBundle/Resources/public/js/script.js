@@ -2,6 +2,11 @@ function Table(el) {
     this.el = el;
 }
 
+Table.prototype.getTableName = function()
+{
+    return this.el.data('table-name');
+}
+
 Table.prototype.columnCount = function()
 {
     return this.el.find('thead th').length;
@@ -15,7 +20,7 @@ Table.prototype.rowCount = function()
 
 Table.prototype.addRows = function(row)
 {
-    var url = Routing.generate('display_table', {name:'varlist'});
+    var url = Routing.generate('display_table', { name: this.getTableName() });
     var thisTableEl = this.el;
     
     $.get(url,

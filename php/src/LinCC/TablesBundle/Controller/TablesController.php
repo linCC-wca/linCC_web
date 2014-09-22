@@ -56,11 +56,31 @@ class TablesController extends Controller
     /**
      * @Template("LinCCTablesBundle:Tables:plcconnection.html.twig")
      */
-    public function displayTablePLCConnectionAction()
+    public function displayTablePLCConnectionAction($frag = NULL, $from = 0, $qty = 30)
     {
+        if (!is_null($frag) && $frag === '1') {
+            return $this->forward('LinCCTablesBundle:Tables:displayFragPLCConnection', array(
+                    'from' => $from,
+                    'qty'  => $qty
+                ));
+        }
+
         $em = $this->getDoctrine()->getManager();
         $plcconnections = $em->getRepository('LinCCTablesBundle:PLCConnection')
-                ->findAll();
+                ->findBy(array(), NULL, $qty);
+
+        return array('plcconnections' => $plcconnections);
+    }
+
+    /**
+     * @Template("LinCCTablesBundle:Tables:fragplcconnection.html.twig")
+     */
+    public function displayFragPLCConnectionAction($from = 0, $qty = 30)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $plcconnections = $em->getRepository('LinCCTablesBundle:PLCConnection')
+                ->findBy(array(), NULL, $qty, $from);
 
         return array('plcconnections' => $plcconnections);
     }
@@ -79,7 +99,7 @@ class TablesController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $vars = $em->getRepository('LinCCTablesBundle:VarList')
-                ->findBy(array(), NULL, 30);
+                ->findBy(array(), NULL, $qty);
 
         return array('vars' => $vars);
     }

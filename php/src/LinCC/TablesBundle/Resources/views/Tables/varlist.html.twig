@@ -1,12 +1,14 @@
 {% extends "LinCCTablesBundle:Tables:layout.html.twig" %}
 
-{% block title %}Varlist{% endblock %}
+{% set tableName = 'Varlist' %}
+
+{% block title %}{{ tableName }}{% endblock %}
 
 {% block content %}
 <div class="container" id="content">
 
   <div class="row">
-    <table class="table table-condensed table-bordered" id="table">
+    <table class="table table-condensed table-bordered" id="table" data-table-name="{{ tableName|lower }}">
       <thead>
         <th>th</th>
         <th>th</th>

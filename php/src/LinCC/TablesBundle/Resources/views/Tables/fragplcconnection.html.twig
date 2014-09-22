@@ -1,0 +1,12 @@
+{% for connection in plcconnections %}
+    <tr>
+      <td>{{ connection.getId() }}</td>
+      <td>{{ connection.getName() }}</td>
+      <td>{{ connection.getType().getName() }}</td>
+      <td>{{ connection.getRack() }}</td>
+      <td>{{ connection.getSlot() }}</td>
+      <td>{{ connection.getIp() }}</td>
+      <td>{{ connection.getConnPort() }}</td>
+      <td>{{ connection.getDescription() }}</td>
+    </tr>
+{% endfor %}
