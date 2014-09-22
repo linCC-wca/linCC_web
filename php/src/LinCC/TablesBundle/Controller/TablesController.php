@@ -27,14 +27,29 @@ class TablesController extends Controller
         $httpErrorStatusCode = 400;
         $httpErrorMsg = "Invalid table name";
 
+        $frag = $this->getRequest()->query->get('frag');
+        $from = $this->getRequest()->query->get('from');
+        $qty  = $this->getRequest()->query->get('qty');
+
         switch ($name) {
             case self::T_PLC_CONNECTION:
-                return $this->forward('LinCCTablesBundle:Tables:displayTablePLCConnection');
+                return $this->forward('LinCCTablesBundle:Tables:displayTablePLCConnection', array(
+                    'frag' => $frag,
+                    'from' => $from,
+                    'qty'  => $qty
+                ));
             case self::T_VARLIST:
-                return $this->forward('LinCCTablesBundle:Tables:displayTableVarlist');
+                return $this->forward('LinCCTablesBundle:Tables:displayTableVarlist', array(
+                    'frag' => $frag,
+                    'from' => $from,
+                    'qty'  => $qty
+                ));
             default:
-                return new Response($content = $httpErrorMsg,
-                        $status = $httpErrorStatusCode);
+                return new Response(
+                    $content = json_encode(array(
+                        'error' => $httpErrorMsg)),
+                    $status = $httpErrorStatusCode,
+                    $headers = array('Content-Type' => 'application/json'));
         }
     }
 
@@ -53,11 +68,31 @@ class TablesController extends Controller
     /**
      * @Template("LinCCTablesBundle:Tables:varlist.html.twig")
      */
-    public function displayTableVarlistAction()
+    public function displayTableVarlistAction($frag = NULL, $from = 0, $qty = 30)
     {
+        if (!is_null($frag) && $frag === '1') {
+            return $this->forward('LinCCTablesBundle:Tables:displayFragVarlist', array(
+                    'from' => $from,
+                    'qty'  => $qty
+                ));
+        }
+
         $em = $this->getDoctrine()->getManager();
         $vars = $em->getRepository('LinCCTablesBundle:VarList')
                 ->findBy(array(), NULL, 30);
+
+        return array('vars' => $vars);
+    }
+
+    /**
+     * @Template("LinCCTablesBundle:Tables:fragvarlist.html.twig")
+     */
+    public function displayFragVarlistAction($from = 0, $qty = 30)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $vars = $em->getRepository('LinCCTablesBundle:VarList')
+                ->findBy(array(), NULL, $qty, $from);
 
         return array('vars' => $vars);
     }

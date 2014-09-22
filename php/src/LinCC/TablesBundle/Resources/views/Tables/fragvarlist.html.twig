@@ -1,0 +1,19 @@
+{% for var in vars %}
+  <tr>
+    <td>{{ var.getId() }}</td>
+    <td>{{ var.getName() }}</td>
+    <td>{{ var.getType() }}</td>
+    <td>{{ var.getPLC().getName() }}</td>
+    <td>{{ var.getAccess() }}</td>
+    <td>{{ var.getDb() }}</td>
+    <td>{{ var.getByte() }}</td>
+    <td>{{ var.getBit() }}</td>
+    <td>{{ var.getRValue() }}</td>
+    <td>{{ var.getWValue() ? var.getWValue() : 'NULL' }}</td>
+    <td>{{ var.getWFlag() ? var.getWFlag() : 'NULL' }}</td>
+    <td>{#{ var.getComment() }#}
+      {% set comment = var.getComment() %}
+      <abbr title="{{ comment }}">{{ comment }}</abbr>
+    </td>
+  </tr>
+{% endfor %}

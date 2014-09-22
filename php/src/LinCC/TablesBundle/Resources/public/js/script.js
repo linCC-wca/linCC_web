@@ -15,10 +15,18 @@ Table.prototype.rowCount = function()
 
 Table.prototype.addRows = function(row)
 {
-    var newEl = $('<tr><td>asd</td></tr>');
-    var res = Routing.generate('display_table', {name:'asd'});
-    //this.el.find('tbody').append(hincluderEl);
-    console.log(res);
+    var url = Routing.generate('display_table', {name:'varlist'});
+    var thisTableEl = this.el;
+    
+    $.get(url,
+        {
+            frag: 1,
+            from: this.rowCount(),
+            qty: 30
+        }).done(function(data){
+            thisTableEl.find('tbody').append($(data));
+        });
+    
     return true;
 }
 
