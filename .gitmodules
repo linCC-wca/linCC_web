@@ -1,9 +1,0 @@
-[submodule "php/app/Resources/bootstrap"]
-	path = php/app/Resources/bootstrap
-	url = https://github.com/twbs/bootstrap.git
-[submodule "php/app/Resources/hinclude"]
-	path = php/app/Resources/hinclude
-	url = https://github.com/mnot/hinclude.git
-[submodule "php/app/Resources/jquery"]
-	path = php/app/Resources/jquery
-	url = https://github.com/jquery/jquery.git

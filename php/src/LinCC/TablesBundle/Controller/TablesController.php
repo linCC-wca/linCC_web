@@ -27,9 +27,9 @@ class TablesController extends Controller
         $httpErrorStatusCode = 400;
         $httpErrorMsg = "Invalid table name";
 
-        $frag = $this->getRequest()->query->get('frag');
-        $from = $this->getRequest()->query->get('from');
-        $qty  = $this->getRequest()->query->get('qty');
+        $frag = $this->getRequest()->query->get('frag', '0');
+        $from = $this->getRequest()->query->get('from', 0);
+        $qty  = $this->getRequest()->query->get('qty', 30);
 
         switch ($name) {
             case self::T_PLC_CONNECTION:

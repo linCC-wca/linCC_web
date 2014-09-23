@@ -10,7 +10,6 @@
 {% block javascripts %}
     {{ parent() }}
     {% javascripts
-        '@hinclude'
         '@LinCCTablesBundle/Resources/public/js/script.js'
         filter='?uglifyjs' %}
         <script src="{{ asset_url }}"></script>
