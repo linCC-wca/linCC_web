@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="LinCC">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,11 +14,11 @@
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     {% block javascripts %}
-      {% javascripts
+      {% javascripts filter='?uglifyjs'
         '@jquery'
         '@angularjs' %}
         <script src="{{ asset_url }}"></script>
-     <meta charset="UTF-8" />   {% endjavascripts %}
+      {% endjavascripts %}
       {% javascripts filter='?uglifyjs'
         'bundles/fosjsrouting/js/router.js'
         'js/fos_js_routes.js' %}
