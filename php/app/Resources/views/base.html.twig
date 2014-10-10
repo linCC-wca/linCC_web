@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="linCC web interface">
-        <meta name="author" content="Walter Barbagallo; Mauro Ghedin">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}
-            {% stylesheets '@bootstrap' filter='?uglifycss' %}
-                <link rel="stylesheet" href="{{ asset_url }}" />
-            {% endstylesheets %}
-        {% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        {% block javascripts %}
-            {% javascripts '@jquery' %}
-                <script src="{{ asset_url }}"></script>
-            {% endjavascripts %}
-            {% javascripts filter='?uglifyjs'
-                'bundles/fosjsrouting/js/router.js'
-                'js/fos_js_routes.js'
-            %}
-                <script src="{{ asset_url }}"></script>
-            {% endjavascripts %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="linCC web interface">
+    <meta name="author" content="Walter Barbagallo; Mauro Ghedin">
+    <title>{% block title %}LinCC{% endblock %}</title>
+    {% block stylesheets %}
+      {% stylesheets '@bootstrap' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+      {% endstylesheets %}
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    {% block javascripts %}
+      {% javascripts
+        '@jquery'
+        '@angularjs' %}
+        <script src="{{ asset_url }}"></script>
+     <meta charset="UTF-8" />   {% endjavascripts %}
+      {% javascripts filter='?uglifyjs'
+        'bundles/fosjsrouting/js/router.js'
+        'js/fos_js_routes.js' %}
+        <script src="{{ asset_url }}"></script>
+      {% endjavascripts %}
+    {% endblock %}
+  </head>
+  <body>
+    {% block body %}{% endblock %}
+  </body>
 </html>

@@ -33,6 +33,7 @@ assetic:
     use_controller: false
     bundles:
         - LinCCTablesBundle
+        - LinCCMainPageBundle
     #java: /usr/bin/java
     #node: /usr/bin/nodejs // decomment if node binary cannot be found
     filters:
@@ -48,10 +49,16 @@ assetic:
     assets:
         bootstrap:
             inputs:
-                - %kernel.root_dir%/Resources/bootstrap/css/bootstrap.css
+                - %kernel.root_dir%/Resources/bootstrap/css/bootstrap.min.css
+        font-awesome:
+            inputs:
+                - %kernel.root_dir%/Resources/font-awesome/css/font-awesome.min.css
         jquery:
             inputs:
                 - %kernel.root_dir%/Resources/jquery/jquery-1.11.1.min.js
+        angularjs:
+            inputs:
+                - %kernel.root_dir%/Resources/angularjs/angular.min.js
 
 # Doctrine Configuration
 doctrine:
