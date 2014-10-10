@@ -72,9 +72,6 @@ class TablesController extends Controller
         return array('plcconnections' => $plcconnections);
     }
 
-    /**
-     * @Template("LinCCTablesBundle:Tables:fragplcconnection.html.twig")
-     */
     public function displayFragPLCConnectionAction($from = 0, $qty = 30)
     {
         $em = $this->getDoctrine()->getManager();
