@@ -1,0 +1,28 @@
+{
+  "name": "linCC",
+  "version": "0.0.0",
+  "description": "LinCC",
+  "main": "web/app.php",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/linCC-wca/linCC_web.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "contributors": [
+    {
+      "name": "Walter Barbagallo",
+      "email": "turbometalskater@gmail.com"
+    },
+    {
+      "name": "Mauro Ghedin"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "bower": "^1.3.12",
+    "uglify-js": "^2.4.15",
+    "uglifycss": "0.0.9"
+  }
+}

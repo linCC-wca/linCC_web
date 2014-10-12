@@ -1,5 +1,5 @@
 #!/bin/bash
- 
+
 export COMPOSER_HOME="$OPENSHIFT_DATA_DIR/.composer"
 
 if [ ! -f "$OPENSHIFT_DATA_DIR/composer.phar" ]; then
@@ -19,4 +19,10 @@ cd $OPENSHIFT_REPO_DIR/php
 
 chmod -R 0777 $OPENSHIFT_REPO_DIR/php/app/cache
 chmod -R 0777 $OPENSHIFT_REPO_DIR/php/app/logs
+
+# npm install does not work on openshift :(
+#export NPM_CONFIG_USERCONFIG="$OPENSHIFT_DATA_DIR/.npmrc"
+#export NPM_CONFIG_CACHE="$OPENSHIFT_HOMEDIR/app-root/build-dependencies"
+#cd $OPENSHIFT_REPO_DIR
+#/usr/bin/npm install
 

@@ -1,0 +1,22 @@
+{
+  "name": "lincc",
+  "version": "0.0.0",
+  "authors": [
+    "Walter Barbagallo <turbometalskater@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "easeljs": "*",
+    "bootstrap": "~3.2.0",
+    "jquery": "~2.1.1",
+    "angular": "~1.2.26",
+    "font-awesome": "~4.2.0"
+  }
+}
