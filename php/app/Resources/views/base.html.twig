@@ -20,18 +20,18 @@
 
   </head>
   <body>
-    {% block body %}
 
-      {% include '::navbar.html.twig' %}
+    {% include '::navbar.html.twig' %}
 
-      <div class="container lincc_content">
+    <div class="container lincc_content">
 
-        <div>
-          <h1>Welcome to LinCC!</h1>
-        </div>
+      {% block body %}
+          <div>
+            <h1>Welcome to LinCC!</h1>
+          </div>
+      {% endblock %}
 
-      </div><!-- /.container -->
-    {% endblock %}
+    </div><!-- /.container -->
 
     {% block javascripts %}
       {#% javascripts filter='?uglifyjs'

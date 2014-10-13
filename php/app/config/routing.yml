@@ -4,6 +4,14 @@ lincc.core:
     resource: "@LinCCCoreBundle/Controller/"
     type:     annotation
     prefix:   /
+lincc.draw:
+    resource: "@LinCCDrawBundle/Controller/"
+    type:     annotation
+    prefix:   /
+lincc.compose:
+    resource: "@LinCCComposeBundle/Controller/"
+    type:     annotation
+    prefix:   /
 lincc.tables:
     resource: "@LinCCTablesBundle/Controller/"
     type:     annotation
