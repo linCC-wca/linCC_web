@@ -56,9 +56,9 @@ assetic:
         jquery:
             inputs:
                 - %kernel.root_dir%/../../bower_components/jquery/dist/jquery.min.js
-        angularjs:
+        easeljs:
             inputs:
-                - %kernel.root_dir%/../../bower_components/angular/angular.min.js
+                - %kernel.root_dir%/../../bower_components/easeljs/lib/easeljs-0.7.1.min.js
 
 # Doctrine Configuration
 doctrine:

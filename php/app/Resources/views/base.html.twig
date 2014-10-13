@@ -10,10 +10,9 @@
 
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     {% block stylesheets %}
-      {% stylesheets
+      {% stylesheets filter='?uglifycss'
         '@bootstrap'
-        '%kernel.root_dir%/Resources/public/css/style.css'
-        filter='?uglifycss' %}
+        '%kernel.root_dir%/Resources/public/css/style.css' %}
         <link rel="stylesheet" href="{{ asset_url }}" />
       {% endstylesheets %}
     {% endblock %}

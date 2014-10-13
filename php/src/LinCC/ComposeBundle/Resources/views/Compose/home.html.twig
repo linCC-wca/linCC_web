@@ -2,6 +2,25 @@
 
 {% block title %}LinCC compose{% endblock %}
 
+{% block stylesheets %}
+  {{ parent() }}
+  {% stylesheets filter='?uglifycss'
+    '@LinCCComposeBundle/Resources/public/css/style.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+  {% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  {% javascripts filter='?uglifyjs'
+    '@jquery'
+    '@easeljs'
+    '@LinCCComposeBundle/Resources/public/js/script.js' %}
+    <script src="{{ asset_url }}"></script>
+  {% endjavascripts %}
+{% endblock %}
+
 {% block body %}
     <h1>compose bundle</h1>
+    <canvas id="lincc_canvas"></canvas>
 {% endblock %}
