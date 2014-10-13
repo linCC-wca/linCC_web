@@ -1,0 +1,39 @@
+{
+  "name": "EaselJS",
+  "homepage": "https://github.com/CreateJS/EaselJS",
+  "authors": [
+    "gskinner",
+    "lannymcnie",
+    "mikechambers",
+    "wdamien"
+  ],
+  "description": "The Easel Javascript library provides a full, hierarchical display list, a core interaction model, and helper classes to make working with the HTML5 Canvas element much easier. Part of the CreateJS suite of libraries.",
+  "main": "lib/easeljs-0.7.1.combined.js",
+  "keywords": [
+    "easeljs",
+    "html5",
+    "canvas",
+    "spritesheet",
+    "createjs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "build",
+    "docs",
+    "examples",
+    "src",
+    "tutorials"
+  ],
+  "_release": "ec8dfdb4eb",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "ec8dfdb4eb5ea24ece092bbe21b002c52c68f5ad"
+  },
+  "_source": "git://github.com/CreateJS/EaselJS.git",
+  "_target": "*",
+  "_originalSource": "easeljs"
+}
