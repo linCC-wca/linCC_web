@@ -17,7 +17,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
-            new LinCC\MainPageBundle\LinCCMainPageBundle(),
+            new LinCC\CoreBundle\LinCCCoreBundle(),
             new LinCC\TablesBundle\LinCCTablesBundle(),
         );
 
