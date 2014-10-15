@@ -43,7 +43,7 @@ assetic:
         #yui_css:
         #    jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar
         uglifyjs:
-            bin: %kernel.root_dir%/../../node_modules/uglify-js/bin/uglifyjs
+            bin: %kernel.root_dir%/../../node_modules/.bin/uglifyjs
         uglifycss:
             bin: %kernel.root_dir%/../../node_modules/.bin/uglifycss
     assets:
