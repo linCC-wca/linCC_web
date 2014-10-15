@@ -1,4 +1,11 @@
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+{% macro getNavElement(path,text) %}
+  {% set currentRoute = app.request.attributes.get('_route') %}
+  <li class="{{ (currentRoute is sameas(path)) ? 'active' }}">
+    <a href="{{ path(path) }}">{{ text }}</a>
+  </li>
+{% endmacro %}
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -10,17 +17,12 @@
       <a class="navbar-brand" href="{{ path('home') }}">LinCC</a>
     </div>
     <div class="collapse navbar-collapse">
+      {% import _self as navbar %}
       <ul class="nav navbar-nav">
-        <li>
-          <a href="{{ path('draw') }}">Draw</a>
-        </li>
-        <li>
-          <a href="{{ path('compose') }}">Compose</a>
-        </li>
-        <li>
-          <a href="#">Tables</a>
-        </li>
+        {{ navbar.getNavElement('draw', 'Draw') }}
+        {{ navbar.getNavElement('compose', 'Compose') }}
+        {# navbar.getNavElement('tables', 'Tables') }} #}
       </ul>
     </div><!--/.nav-collapse -->
   </div>
-</div>
+</nav>

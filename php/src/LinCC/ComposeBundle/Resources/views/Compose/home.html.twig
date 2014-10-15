@@ -21,6 +21,10 @@
 {% endblock %}
 
 {% block body %}
-    <h1>compose bundle</h1>
-    <canvas id="lincc_canvas"></canvas>
+  <div class="row">
+    {% include 'LinCCComposeBundle:Compose:aside.html.twig' %}
+    <div class="col-md-10">
+      <canvas id="lincc_canvas" width="600" height="200"></canvas>
+    </div>
+  </div>
 {% endblock %}

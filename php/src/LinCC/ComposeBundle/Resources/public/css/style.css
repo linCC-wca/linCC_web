@@ -1,6 +1,17 @@
+.lincc_content aside {
+    min-height: 300px;
+}
+.lincc_content aside button{
+    font-size: 24px;
+    border-radius: 0;
+}
+.lincc_content aside .btn-group:not(:first-child) button{
+    border-left: 0;
+}
+.lincc_content aside .row:not(:first-child) button{
+    border-top: 0;
+}
+
 #lincc_canvas {
-    width: 600px;
-    height:150px;
     border:1px black solid;
-    margin:0 auto;
 }

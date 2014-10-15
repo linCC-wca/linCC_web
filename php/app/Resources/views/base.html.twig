@@ -33,12 +33,12 @@
     </div><!-- /.container -->
 
     {% block javascripts %}
-      {#% javascripts filter='?uglifyjs'
+      {% javascripts filter='?uglifyjs'
         '@jquery'
-        '@angularjs' %}
+        '%kernel.root_dir%/Resources/public/js/script.js' %}
         <script src="{{ asset_url }}"></script>
       {% endjavascripts %}
-      {% javascripts filter='?uglifyjs'
+      {#% javascripts filter='?uglifyjs'
         'bundles/fosjsrouting/js/router.js'
         'js/fos_js_routes.js' %}
         <script src="{{ asset_url }}"></script>
