@@ -1,3 +1,9 @@
+/* compose_header section */
+section.lincc_compose_header {
+    min-height: 50px;
+}
+
+/* aside section */
 .lincc_content aside {
     min-height: 300px;
 }
@@ -13,5 +19,5 @@
 }
 
 #lincc_canvas {
-    border:1px black solid;
+    border:1px #ccc solid;
 }

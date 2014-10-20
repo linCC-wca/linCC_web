@@ -21,10 +21,18 @@
 {% endblock %}
 
 {% block body %}
+  <section class="row lincc_compose_header">
+    <div class="form-group form-inline">
+      <label>Component name:
+        <input type="text" class="form-control" placeholder="no name">
+      </label>
+    </div>
+  </section>
+
   <div class="row">
     {% include 'LinCCComposeBundle:Compose:aside.html.twig' %}
     <div class="col-md-10">
-      <canvas id="lincc_canvas" width="600" height="200"></canvas>
+      <canvas id="lincc_canvas" width="500" height="300"></canvas>
     </div>
   </div>
 {% endblock %}
